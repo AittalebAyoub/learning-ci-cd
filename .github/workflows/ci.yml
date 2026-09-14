@@ -20,7 +20,13 @@ jobs:
           python-version: '3.11'
 
       - name: Installer les dépendances
-        run: pip install pytest
+        run: pip install pytest flake8 black
+
+      - name: Lancer le linting
+        run: flake8 calculator.py test_calculator.py
+
+      - name: Vérifier le formatting
+        run: black --check --diff calculator.py test_calculator.py
 
       - name: Lancer les tests
         run: pytest
