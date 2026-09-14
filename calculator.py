@@ -1,8 +1,5 @@
-import os
-
-
-def add(a,b):
-    return a+b
+def add(a, b):
+    return a + b
 
 
 def subtract(a, b):
@@ -16,5 +13,4 @@ def divide(a, b):
 
 
 def calculate_square(x):
-    unused_variable = 99
     return x * x
