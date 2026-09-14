@@ -103,3 +103,20 @@ Un petit projet simple, mais avec de vrais tests, pour bien sentir la douleur "a
 
 ## ✅ Suivi
 Coche chaque case au fur et à mesure. Dis-moi quand tu commences l'étape 1 et on avance ensemble, étape par étape, en pratiquant à chaque fois avant de passer à la suite.
+
+
+
+## Théorie . 
+
+Définition courte
+
+L'Intégration Continue (CI) est une pratique de développement qui consiste à exécuter automatiquement, à chaque push, un ensemble de vérifications (tests, linting, formatting, build...) sur le code, de manière systématique et sans exception — afin de détecter les problèmes immédiatement plutôt que de dépendre de la vigilance humaine.
+
+Décomposée en mots-clés à retenir
+Automatique → pas d'action manuelle nécessaire, ça se déclenche tout seul
+À chaque push → pas "de temps en temps", à chaque intégration de code
+Vérifications → tests, linting (style de code), formatting, parfois build/compilation
+Systématique → toujours les mêmes règles, pour tout le monde, sans exception
+Détection immédiate → le but n'est pas de corriger, mais d'alerter tout de suite
+
+Retiens surtout la distinction : CI = la pratique/le concept ; GitHub Actions = l'outil qu'on va utiliser pour la mettre en œuvre.
