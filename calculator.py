@@ -4,5 +4,9 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-def divide(b, c):
-    return b / c
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Division par zéro impossible")
+    return a / b
+
+# comment
