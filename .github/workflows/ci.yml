@@ -21,7 +21,6 @@ jobs:
         run: black --check calculator.py test_calculator.py
 
   test:
-    needs: lint-and-format     # attend que lint-and-format termine
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
