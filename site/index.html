@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculatrice CI/CD</title>
+</head>
+<body>
+  <h1>Ma calculatrice</h1>
+  <input id="a" type="number" placeholder="a">
+  <input id="b" type="number" placeholder="b">
+  <button onclick="calc()">Additionner</button>
+  <p id="result"></p>
+
+  <script>
+    function calc() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      document.getElementById('result').innerText = "Résultat : " + (a + b);
+    }
+  </script>
+</body>
+</html>
