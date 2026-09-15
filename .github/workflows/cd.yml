@@ -1,0 +1,38 @@
+name: CD
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write        # nécessaire pour déployer sur Pages
+  id-token: write      # nécessaire pour l'authentification
+
+# Un seul déploiement à la fois (évite les conflits de concurrence)
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml    # réutilise ton pipeline CI existant
+
+  deploy:
+    needs: ci                            # === Gate : n'avance que si CI est vert ===
+    runs-on: ubuntu-latest
+    environment:                         # === Concept : Environnement ===
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Préparer l'artefact          # === Concept : Artefact déployable ===
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Déployer sur GitHub Pages    # === Concept : Déploiement + Secrets automatiques ===
+        id: deployment
+        uses: actions/deploy-pages@v4
