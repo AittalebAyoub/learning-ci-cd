@@ -29,8 +29,9 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Tester un secret (démo)
-        run: echo "Le secret est : $TEST_SECRET"
-        run : echo "ENV est : $NODE_ENV"
+        run: |
+          echo "Le secret est : $TEST_SECRET"
+          echo "ENV est : $NODE_ENV"
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
           NODE_ENV: ${{ vars.NODE_ENV }}
