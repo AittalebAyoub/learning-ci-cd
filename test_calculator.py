@@ -1,5 +1,4 @@
 from calculator import add, subtract, divide
-import pytest
 
 
 def test_add():
@@ -12,4 +11,3 @@ def test_subtract():
 
 def test_divide():
     assert divide(10, 2) == 5
-
