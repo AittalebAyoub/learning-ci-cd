@@ -27,6 +27,13 @@ jobs:
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
+      
+      - name: Tester un secret (démo)
+        run: echo "Le secret est : $TEST_SECRET"
+        run : echo "ENV est : $NODE_ENV"
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+          NODE_ENV: ${{ vars.NODE_ENV }}
 
       - name: Préparer l'artefact          # === Concept : Artefact déployable ===
         uses: actions/upload-pages-artifact@v3
