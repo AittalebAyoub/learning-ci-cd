@@ -11,11 +11,14 @@ jobs:
   lint-and-format:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Env
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install flake8 black
+      - name: Install Dependencies
+        run: pip install flake8 black
       - name: Linting
         run: flake8 calculator.py test_calculator.py
       - name: Formatting
@@ -24,9 +27,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Env
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install pytest
-      - run: pytest
+      - name: Install Dependencies
+        run: pip install pytest
+      - name: Run Tests
+        run: pytest
